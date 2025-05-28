@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 29/05/2025 às 01:00
+-- Tempo de geração: 29/05/2025 às 01:24
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -42,16 +42,16 @@ CREATE TABLE `eventos` (
 --
 
 INSERT INTO `eventos` (`Id`, `titulo`, `descricao`, `localizacao`, `dataEvento`, `hora`, `dataCriacao`) VALUES
-(1, 'Rock no Vale com Metallica', 'Show explosivo da lendária banda Metallica.', 'Vale do Anhangabaú, SP', '2025-08-10', '21:00:00', '2025-05-28 19:57:53'),
-(2, 'Noite Pop com Taylor Swift', 'Turnê mundial de Taylor Swift.', 'Allianz Parque, SP', '2025-09-15', '20:30:00', '2025-05-28 19:57:53'),
-(3, 'Festival Épico - Coldplay', 'Coldplay com luzes e muita emoção.', 'Maracanã, RJ', '2025-10-20', '19:00:00', '2025-05-28 19:57:53'),
-(4, 'Sertanejo Sunset', 'Jorge & Mateus ao pôr do sol.', 'Parque Ibirapuera, SP', '2025-09-01', '17:00:00', '2025-05-28 19:57:53'),
-(5, 'Baile Funk Supremo', 'MC Kevinho e convidados.', 'Sambódromo do Anhembi, SP', '2025-11-12', '23:00:00', '2025-05-28 19:57:53'),
-(6, 'Jazz Night com Norah Jones', 'Noite relaxante de jazz.', 'Blue Note SP', '2025-07-08', '20:00:00', '2025-05-28 19:57:53'),
-(7, 'Festival Anime Songs', 'Músicas de animes com orquestra.', 'Auditório Ibirapuera, SP', '2025-08-30', '18:00:00', '2025-05-28 19:57:53'),
-(8, 'Rock Nacional Retrô', 'RPM, Legião Urbana cover e Paralamas.', 'Estádio do Morumbi, SP', '2025-10-01', '20:00:00', '2025-05-28 19:57:53'),
-(9, 'EDM Explosion com David Guetta', 'Show de luzes e batidas.', 'Arena BR, Brasília', '2025-09-18', '22:00:00', '2025-05-28 19:57:53'),
-(10, 'Festival Reggae & Paz', 'Natiruts e convidados.', 'Praia de Copacabana, RJ', '2025-12-05', '16:00:00', '2025-05-28 19:57:53');
+(1, 'Rock no Vale com Metallica', 'Show explosivo da lendária banda Metallica.', 'Vale do Anhangabaú, SP', '2025-08-10', '21:00:00', '2025-05-28 20:18:00'),
+(2, 'Noite Pop com Taylor Swift', 'Turnê mundial de Taylor Swift.', 'Allianz Parque, SP', '2025-09-15', '20:30:00', '2025-05-28 20:18:00'),
+(3, 'Festival Épico - Coldplay', 'Coldplay com luzes e muita emoção.', 'Maracanã, RJ', '2025-10-20', '19:00:00', '2025-05-28 20:18:00'),
+(4, 'Sertanejo Sunset', 'Jorge & Mateus ao pôr do sol.', 'Parque Ibirapuera, SP', '2025-09-01', '17:00:00', '2025-05-28 20:18:00'),
+(5, 'Baile Funk Supremo', 'MC Kevinho e convidados.', 'Sambódromo do Anhembi, SP', '2025-11-12', '23:00:00', '2025-05-28 20:18:00'),
+(6, 'Jazz Night com Norah Jones', 'Noite relaxante de jazz.', 'Blue Note SP', '2025-07-08', '20:00:00', '2025-05-28 20:18:00'),
+(7, 'Festival Anime Songs', 'Músicas de animes com orquestra.', 'Auditório Ibirapuera, SP', '2025-08-30', '18:00:00', '2025-05-28 20:18:00'),
+(8, 'Rock Nacional Retrô', 'RPM, Legião Urbana cover e Paralamas.', 'Estádio do Morumbi, SP', '2025-10-01', '20:00:00', '2025-05-28 20:18:00'),
+(9, 'EDM Explosion com David Guetta', 'Show de luzes e batidas.', 'Arena BR, Brasília', '2025-09-18', '22:00:00', '2025-05-28 20:18:00'),
+(10, 'Festival Reggae & Paz', 'Natiruts e convidados.', 'Praia de Copacabana, RJ', '2025-12-05', '16:00:00', '2025-05-28 20:18:00');
 
 -- --------------------------------------------------------
 
@@ -62,7 +62,7 @@ INSERT INTO `eventos` (`Id`, `titulo`, `descricao`, `localizacao`, `dataEvento`,
 CREATE TABLE `ingressos` (
   `Id` int(11) NOT NULL,
   `IdEventos` int(11) NOT NULL,
-  `valor` decimal(10,0) NOT NULL
+  `valor` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -70,16 +70,16 @@ CREATE TABLE `ingressos` (
 --
 
 INSERT INTO `ingressos` (`Id`, `IdEventos`, `valor`) VALUES
-(1, 1, 300),
-(2, 2, 450),
-(3, 3, 500),
-(4, 4, 200),
-(5, 5, 150),
-(6, 6, 350),
-(7, 7, 250),
-(8, 8, 280),
-(9, 9, 600),
-(10, 10, 180);
+(1, 1, 299.90),
+(2, 2, 449.50),
+(3, 3, 500.00),
+(4, 4, 199.99),
+(5, 5, 159.90),
+(6, 6, 349.75),
+(7, 7, 259.00),
+(8, 8, 279.90),
+(9, 9, 599.99),
+(10, 10, 189.50);
 
 -- --------------------------------------------------------
 
@@ -92,7 +92,7 @@ CREATE TABLE `pedidos` (
   `IdUsuarios` int(11) NOT NULL,
   `IdIngressos` int(11) NOT NULL,
   `qtdIngressos` int(11) NOT NULL,
-  `valorTotal` decimal(10,0) NOT NULL,
+  `valorTotal` decimal(10,2) DEFAULT NULL,
   `dataPedido` datetime NOT NULL,
   `status` varchar(15) NOT NULL,
   `metodoPagamento` varchar(10) NOT NULL,
@@ -104,16 +104,16 @@ CREATE TABLE `pedidos` (
 --
 
 INSERT INTO `pedidos` (`Id`, `IdUsuarios`, `IdIngressos`, `qtdIngressos`, `valorTotal`, `dataPedido`, `status`, `metodoPagamento`, `dataPagamento`) VALUES
-(1, 1, 1, 2, 600, '2025-05-28 19:57:53', 'CONFIRMADO', 'PIX', '2025-05-28 19:57:53'),
-(2, 2, 2, 1, 450, '2025-05-28 19:57:53', 'CONFIRMADO', 'CARTAO', '2025-05-28 19:57:53'),
-(3, 3, 3, 3, 1500, '2025-05-28 19:57:53', 'CONFIRMADO', 'BOLETO', '2025-05-28 19:57:53'),
-(4, 4, 4, 2, 400, '2025-05-28 19:57:53', 'CONFIRMADO', 'PIX', '2025-05-28 19:57:53'),
-(5, 5, 5, 1, 150, '2025-05-28 19:57:53', 'CONFIRMADO', 'CARTAO', '2025-05-28 19:57:53'),
-(6, 6, 6, 2, 700, '2025-05-28 19:57:53', 'CONFIRMADO', 'PIX', '2025-05-28 19:57:53'),
-(7, 7, 7, 1, 250, '2025-05-28 19:57:53', 'CONFIRMADO', 'BOLETO', '2025-05-28 19:57:53'),
-(8, 8, 8, 2, 560, '2025-05-28 19:57:53', 'CONFIRMADO', 'PIX', '2025-05-28 19:57:53'),
-(9, 9, 9, 1, 600, '2025-05-28 19:57:53', 'CONFIRMADO', 'CARTAO', '2025-05-28 19:57:53'),
-(10, 10, 10, 3, 540, '2025-05-28 19:57:53', 'CONFIRMADO', 'PIX', '2025-05-28 19:57:53');
+(1, 1, 1, 2, 599.80, '2025-05-28 20:18:00', 'CONFIRMADO', 'CARTAO', '2025-05-28 20:18:00'),
+(2, 2, 2, 1, 449.50, '2025-05-28 20:18:00', 'CONFIRMADO', 'BOLETO', '2025-05-28 20:18:00'),
+(3, 3, 3, 3, 1500.00, '2025-05-28 20:18:00', 'CONFIRMADO', 'PIX', '2025-05-28 20:18:00'),
+(4, 4, 4, 2, 399.98, '2025-05-28 20:18:00', 'CONFIRMADO', 'CARTAO', '2025-05-28 20:18:00'),
+(5, 5, 5, 1, 159.90, '2025-05-28 20:18:00', 'CONFIRMADO', 'BOLETO', '2025-05-28 20:18:00'),
+(6, 6, 6, 2, 699.50, '2025-05-28 20:18:00', 'CONFIRMADO', 'PIX', '2025-05-28 20:18:00'),
+(7, 7, 7, 1, 259.00, '2025-05-28 20:18:00', 'CONFIRMADO', 'CARTAO', '2025-05-28 20:18:00'),
+(8, 8, 8, 2, 559.80, '2025-05-28 20:18:00', 'CONFIRMADO', 'BOLETO', '2025-05-28 20:18:00'),
+(9, 9, 9, 1, 599.99, '2025-05-28 20:18:00', 'CONFIRMADO', 'PIX', '2025-05-28 20:18:00'),
+(10, 10, 10, 3, 568.50, '2025-05-28 20:18:00', 'CONFIRMADO', 'CARTAO', '2025-05-28 20:18:00');
 
 -- --------------------------------------------------------
 
@@ -207,3 +207,25 @@ ALTER TABLE `pedidos`
 --
 ALTER TABLE `usuarios`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- Restrições para tabelas despejadas
+--
+
+--
+-- Restrições para tabelas `ingressos`
+--
+ALTER TABLE `ingressos`
+  ADD CONSTRAINT `ingressos_ibfk_1` FOREIGN KEY (`IdEventos`) REFERENCES `eventos` (`Id`);
+
+--
+-- Restrições para tabelas `pedidos`
+--
+ALTER TABLE `pedidos`
+  ADD CONSTRAINT `pedidos_ibfk_1` FOREIGN KEY (`IdIngressos`) REFERENCES `ingressos` (`Id`),
+  ADD CONSTRAINT `pedidos_ibfk_2` FOREIGN KEY (`IdUsuarios`) REFERENCES `usuarios` (`Id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
